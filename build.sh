@@ -14,10 +14,10 @@ docker buildx build \
   --build-arg BUILDPLATFORM=linux/amd64 \
   --build-arg TARGETPLATFORM=linux/amd64 \
   --build-arg VERSION=${VERSION} \
-  --tag geekdada/snell-server:$VERSION \
+  --tag ghijnuuz/snell-server:$VERSION \
   .
 
-docker tag geekdada/snell-server:$VERSION geekdada/snell-server:latest
+docker tag ghijnuuz/snell-server:$VERSION ghijnuuz/snell-server:latest
 
-docker push geekdada/snell-server:$VERSION
-docker push geekdada/snell-server:latest
+docker push ghijnuuz/snell-server:$VERSION
+docker push ghijnuuz/snell-server:latest
