@@ -28,9 +28,25 @@ else
     echo "Using predefined PSK: ${PSK}"
 fi
 
+if [ -z ${PORT} ]; then
+    PORT="9102"
+fi
+
 echo "Generating new config..."
 echo "[snell-server]" >> ${CONF}
-echo "listen = :::9102" >> ${CONF}
+echo "listen = :::${PORT}" >> ${CONF}
 echo "psk = ${PSK}" >> ${CONF}
+if [ -n ${IPV6} ]; then
+    echo "ipv6 = ${IPV6}" >> ${CONF}
+fi
+if [ -n ${OBFS} ]; then
+    echo "obfs = ${OBFS}" >> ${CONF}
+fi
+if [ -n ${OBFS_HOST} ]; then
+    echo "obfs-host = ${OBFS_HOST}" >> ${CONF}
+fi
+if [ -n ${OBFS_URI} ]; then
+    echo "obfs-uri = ${OBFS_URI}" >> ${CONF}
+fi
 
 run_bin
